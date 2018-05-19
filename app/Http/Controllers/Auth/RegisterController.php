@@ -2,6 +2,8 @@
 
 namespace simpleTicket\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
+use simpleTicket\Role;
 use simpleTicket\User;
 use simpleTicket\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -67,5 +69,20 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, User $user)
+    {
+        $roleGuest = Role::where('name', 'guest')->first();
+        $user->Roles()->save($roleGuest);
+
+        return redirect($this->redirectPath());
     }
 }
