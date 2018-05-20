@@ -19,7 +19,7 @@ class RoleTableSeeder extends Seeder
         $roleGuest = new Role(['name' => 'expert', 'label' => 'کارشناس']);
         $roleGuest->save();
 
-        $roleGuest = new Role(['name' => 'guest', 'label' => 'مهمان']);
+        $roleGuest = new Role(['name' => 'user', 'label' => 'کاربر']);
         $roleGuest->save();
 
         $userAdmin = User::where("email", "admin@test.com")->first();

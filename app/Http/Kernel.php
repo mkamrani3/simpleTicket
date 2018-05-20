@@ -2,6 +2,7 @@
 
 namespace simpleTicket\Http;
 
+use simpleTicket\Http\Middleware\AuthPanel;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -57,5 +58,6 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \simpleTicket\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'auth.panel' => \simpleTicket\Http\Middleware\AuthPanel::class,
     ];
 }

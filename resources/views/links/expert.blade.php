@@ -1,0 +1,2 @@
+{{--<li class="nav-item ml-2"><a class="btn btn-link" href="{{ route('admin.enrolled.index') }}">ثبت نام کنندگان</a></li>--}}
+<li class="nav-item ml-2"><a class="btn btn-link" href="'admin.enrolled.index">ثبت نام کنندگان</a></li>

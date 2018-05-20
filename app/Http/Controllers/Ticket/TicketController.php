@@ -1,8 +1,9 @@
 <?php
 
-namespace simpleTicket\Http\Controllers;
+namespace simpleTicket\Http\Controllers\Ticket;
 
 use Illuminate\Http\Request;
+use simpleTicket\Http\Controllers\Controller;
 
 class TicketController extends Controller
 {
