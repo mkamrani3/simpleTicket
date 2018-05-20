@@ -16,4 +16,13 @@ class Ticket extends Model
     public function Threads(){
         return $this->hasMany(TicketThread::class);
     }
+
+    public function getStatusDesc(){
+        switch ($this->status){
+            case 'OPEN': return 'باز';
+            case 'DOING': return 'درحال انجام';
+            case 'CLOSE': return 'بسته';
+        }
+        return '';
+    }
 }

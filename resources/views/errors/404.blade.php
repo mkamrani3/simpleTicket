@@ -16,7 +16,7 @@
     <!-- Bootstrap CSS -->
     <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
-<body>
+<body dir="rtl">
 <div id="app">
     <nav class="navbar navbar-expand-md">
         <div class="container">
@@ -27,7 +27,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <div class="panel">
+                <div class="panel panel-default">
                     <div class="panel-heading">توجه</div>
                     <div class="panel-body text-center">
                         <img src="{{ asset('img/error-404.png') }}" alt="error-404">

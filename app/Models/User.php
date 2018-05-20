@@ -63,4 +63,10 @@ class User extends Authenticatable
 
         return !!$role->intersect($this->roles)->count();
     }
+
+    public function Tickets()
+    {
+        return $this->hasMany(Ticket::class, 'owner_id')
+            ->orderBy('created_at', 'desc');
+    }
 }
