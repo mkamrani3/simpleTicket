@@ -27,7 +27,7 @@ class AuthPanel
 
         $request->user()->setCurrentPanel(session()->get('panel', 'guest'));
 
-        if ($request->user()->getCurrentPanel() == 'quest') {
+        if ($request->user()->getCurrentPanel() == 'guest') {
             if ($request->user()->hasRole('user'))
                 $request->user()->setCurrentPanel('user');
 
