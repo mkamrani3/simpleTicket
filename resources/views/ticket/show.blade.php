@@ -17,9 +17,9 @@
                             </tr>
                             <tr>
                                 <th>تاریخ ایجاد</th>
-                                <td>{{ $ticket->created_at }}</td>
+                                <td>{{ convertToJalaliDate($ticket->created_at) }}</td>
                                 <th>اخرین ویرایش</th>
-                                <td>{{ $ticket->updated_at }}</td>
+                                <td>{{ convertToJalaliDate($ticket->updated_at) }}</td>
                             </tr>
                         </table>
 
@@ -27,7 +27,7 @@
                             <div class="panel-heading">
                                 {{ $ticket->owner->name }}
                                 <span>در</span>
-                                {{ $ticket->created_at }}
+                                {{ convertToJalaliDate($ticket->created_at) }}
                             </div>
                             <div class="panel-body">
                                 <div class="col-md-1"></div>
@@ -40,7 +40,7 @@
                                 <div class="panel-heading">
                                     {{ $thread->user->name }}
                                     <span>در</span>
-                                    {{ $thread->created_at }}
+                                    {{ convertToJalaliDate($thread->created_at) }}
                                 </div>
                                 <div class="panel-body">
                                     @if($thread->user->id == auth()->user()->id)
@@ -58,7 +58,7 @@
                                     <div class="col-md-1"></div>
                                     <div class="col-md-10">
                                         {{ $thread->user->name }} {{ $thread->description }}
-                                        <span>{{ $thread->created_at }}</span>
+                                        <span>{{ convertToJalaliDate($thread->created_at) }}</span>
                                     </div>
                                 </div>
                             @endif

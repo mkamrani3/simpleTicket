@@ -21,7 +21,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $ticket->title }}</td>
                                 <td>{{ $ticket->getStatusDesc() }}</td>
-                                <td>{{ $ticket->created_at }}</td>
+                                <td>{{ convertToJalaliDate($ticket->created_at) }}</td>
                                 <td>
                                     <a class="btn btn-sm btn-primary" href="{{ route('ticket.show', [$ticket]) }}"><i class="fa fa-list"></i> مشاهده </a>
                                 </td>

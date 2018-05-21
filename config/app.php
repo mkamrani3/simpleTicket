@@ -177,6 +177,7 @@ return [
         simpleTicket\Providers\EventServiceProvider::class,
         simpleTicket\Providers\RouteServiceProvider::class,
 
+        Morilog\Jalali\JalaliServiceProvider::class,
     ],
 
     /*
@@ -226,6 +227,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'jDate' => Morilog\Jalali\Facades\jDate::class,
+        'Jalali' => \Date\Jalali::class,
+        'Date'   => Date\Date::class,
     ],
 
 ];
