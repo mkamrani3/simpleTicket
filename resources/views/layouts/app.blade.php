@@ -14,6 +14,7 @@
     <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('other_css')
 </head>
 <body dir="rtl">
     <div id="app">
@@ -56,6 +57,20 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
+                                    @if(count(auth()->user()->roles) > 1 )
+                                    @foreach(auth()->user()->roles as $role)
+                                    <form id="role-form" action="{{ route('role') }}" method="POST" style="display: none;">
+                                        <input id="role_panel" type="hidden" name="panel" value="">
+                                        {{ csrf_field() }}
+                                    </form>
+                                    <li>
+                                        <a href="{{ route('role') }}"
+                                           onclick="event.preventDefault(); document.getElementById('role_panel').value = '{{ $role->name }}'; document.getElementById('role-form').submit();">
+                                            <span>پنل </span>{{ $role->label }}
+                                        </a>
+                                    </li>
+                                    @endforeach
+                                    @endif
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -97,5 +112,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('other_js')
 </body>
 </html>

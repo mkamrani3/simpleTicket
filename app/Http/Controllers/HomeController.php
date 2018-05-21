@@ -24,4 +24,10 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function role(Request $request)
+    {
+        session()->put('panel', $request->get('panel'));
+        return redirect(route('home'));
+    }
 }

@@ -80,7 +80,7 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, User $user)
     {
-        $roleGuest = Role::where('name', 'guest')->first();
+        $roleGuest = Role::where('name', 'user')->first();
         $user->Roles()->save($roleGuest);
 
         return redirect($this->redirectPath());

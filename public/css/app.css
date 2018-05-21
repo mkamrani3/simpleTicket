@@ -7602,3 +7602,9 @@ table.table th {
 .mb-20 {
     margin-bottom: 20px;
 }
+.direction-rtl {
+    direction: rtl;
+}
+.direction-ltr {
+    direction: ltr;
+}

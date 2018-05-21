@@ -25,20 +25,18 @@ class AuthPanel
 
 //        Log::info(print_r($request->user()->getRoles(), true));
 
-        $request->user()->setCurrentPanel('guest');
+        $request->user()->setCurrentPanel(session()->get('panel', 'guest'));
 
-//        if ($first == 'user')
+        if ($request->user()->getCurrentPanel() == 'quest') {
             if ($request->user()->hasRole('user'))
                 $request->user()->setCurrentPanel('user');
 
-//        if ($first == 'expert')
             if ($request->user()->hasRole('expert'))
                 $request->user()->setCurrentPanel('expert');
 
-//        if ($first == 'admin')
             if ($request->user()->hasRole('admin'))
                 $request->user()->setCurrentPanel('admin');
-
+        }
         foreach ($roles as $role)
             if ($request->user()->hasRole($role))
                 return $next($request);
