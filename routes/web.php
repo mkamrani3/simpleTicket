@@ -31,4 +31,13 @@ Route::group(['prefix' => 'admin','middleware' => ['web', 'auth', 'auth.panel:ad
     Route::get('/user', ['uses' => 'Admin\UserController@index', 'as' => 'admin.user']);
     Route::get('/user/{user}/role', ['uses' => 'Admin\UserController@roles', 'as' => 'admin.user.role']);
     Route::post('/user/{user}/role', ['uses' => 'Admin\UserController@doRoles']);
+
+    Route::get('/ticket/un_assignee', ['uses' => 'Admin\ExpertController@unAssignee', "as" => 'admin.ticket.un_assignee']);
+    Route::post('/ticket/{ticket}/assignee', ['uses' => 'Admin\ExpertController@doAssignee', "as" => 'admin.ticket.assignee']);
+});
+
+Route::group(['prefix' => 'expert','middleware' => ['web', 'auth', 'auth.panel:expert']], function () {
+    Route::get('/ticket', ['uses' => 'Admin\ExpertController@ticket', 'as' => 'expert.ticket']);
+    Route::get('/ticket/{ticket}/show', ['uses' => 'Admin\ExpertController@showTicket', 'as' => 'expert.ticket.show']);
+    Route::post('/ticket/{ticket}/reply', ['uses' => 'Admin\ExpertController@replyTicket', 'as' => 'expert.ticket.reply']);
 });

@@ -13,6 +13,11 @@ class Ticket extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function Assignee()
+    {
+        return $this->belongsTo(User::class, 'assignee_id');
+    }
+
     public function Threads(){
         return $this->hasMany(TicketThread::class);
     }
@@ -24,5 +29,11 @@ class Ticket extends Model
             case 'CLOSE': return 'بسته';
         }
         return '';
+    }
+
+    public static function UnAssignees()
+    {
+        return Ticket::all()->where('assignee', null)
+            ->sortByDesc('created_at');
     }
 }

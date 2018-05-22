@@ -69,4 +69,14 @@ class User extends Authenticatable
         return $this->hasMany(Ticket::class, 'owner_id')
             ->orderBy('created_at', 'desc');
     }
+
+    public function Assignees()
+    {
+        return $this->hasMany(Ticket::class, 'assignee_id')
+            ->orderBy('created_at', 'desc');
+    }
+
+    public static function getExperts(){
+        return Role::where('name', 'expert')->first()->users;
+    }
 }

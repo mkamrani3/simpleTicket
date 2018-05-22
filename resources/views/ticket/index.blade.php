@@ -14,6 +14,7 @@
                                 <th class="col-sm-6">عنوان</th>
                                 <th>وضعیت</th>
                                 <th style="width: 200px">تاریخ ایجاد</th>
+                                <th style="width: 200px">اخرین تغییر</th>
                                 <th style="width: 50px">-</th>
                             </tr>
                             @foreach($tickets as $ticket)
@@ -22,6 +23,7 @@
                                 <td>{{ $ticket->title }}</td>
                                 <td>{{ $ticket->getStatusDesc() }}</td>
                                 <td>{{ convertToJalaliDate($ticket->created_at) }}</td>
+                                <td>{{ convertToJalaliDate($ticket->updated_at) }}</td>
                                 <td>
                                     <a class="btn btn-sm btn-primary" href="{{ route('ticket.show', [$ticket]) }}"><i class="fa fa-list"></i> مشاهده </a>
                                 </td>
