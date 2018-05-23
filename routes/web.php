@@ -34,6 +34,8 @@ Route::group(['prefix' => 'admin','middleware' => ['web', 'auth', 'auth.panel:ad
 
     Route::get('/ticket/un_assignee', ['uses' => 'Admin\ExpertController@unAssignee', "as" => 'admin.ticket.un_assignee']);
     Route::post('/ticket/{ticket}/assignee', ['uses' => 'Admin\ExpertController@doAssignee', "as" => 'admin.ticket.assignee']);
+
+    Route::get('/dashboard', ['uses' => 'Admin\AdminController@dashboard', "as" => 'admin.dashboard']);
 });
 
 Route::group(['prefix' => 'expert','middleware' => ['web', 'auth', 'auth.panel:expert']], function () {

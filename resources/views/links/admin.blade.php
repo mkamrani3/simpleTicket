@@ -20,3 +20,6 @@
         </li>
     </ul>
 </li>
+<li>
+    <a class="btn btn-link" href="{{ route('admin.dashboard') }}">داشبورد</a>
+</li>
